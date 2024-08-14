@@ -1,7 +1,6 @@
 import React from 'react';
-import Navbar from "@/components/Dashboard/layout/navbar";
-import Sidebar from "@/components/Dashboard/layout/sidebar";
-import Footer from "@/components/Dashboard/layout/footer";
+import Navbar from "@/components/layout/navbar";
+import Sidebar from "@/components/layout/sidebar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -19,7 +18,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                             </div>
                         </div>
                     </main>
-                    <Footer />
+                    {/*<Footer />*/}
                 </div>
             </div>
         </>

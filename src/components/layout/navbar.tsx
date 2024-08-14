@@ -1,5 +1,5 @@
 import React from 'react';
-import UserAvatar from "@/components/Dashboard/ui/userAvatar";
+import UserAvatar from "@/components/ui/userAvatar";
 
 export default function Navbar() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialLinks from "@/components/Dashboard/ui/socialLinks";
+import SocialLinks from "@/components/ui/socialLinks";
 
 export default function Footer() {
     return (

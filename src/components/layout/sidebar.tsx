@@ -1,8 +1,9 @@
 import React from 'react';
-import SidebarLink from "@/components/Dashboard/ui/sidebarLink";
+import SidebarLink from "@/components/ui/sidebarLink";
 
 const links = [
-    { name: "Home", href: "dashboard" },
+    { name: "Dashboard", href: "dashboard" },
+    { name: "Custommers", href: "custommers" },
 ];
 
 export default function Sidebar() {
