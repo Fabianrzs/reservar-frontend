@@ -3,7 +3,9 @@ import SidebarLink from "@/components/ui/sidebarLink";
 
 const links = [
     { name: "Dashboard", href: "dashboard" },
-    { name: "Custommers", href: "custommers" },
+    { name: "Customers", href: "customers" },
+    { name: "Email Templates", href: "email-templates" },
+    { name: "Payment Method", href: "payment-method" },
 ];
 
 export default function Sidebar() {

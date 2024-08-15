@@ -1,7 +1,8 @@
+"use client";
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import {CustomerManagementHeader} from "@/components/ManagementCustomers/CustomerManagementHeader";
 import {CustomerTable} from "@/components/ManagementCustomers/CustomerTable";
+import {Header} from "@/components/layout/header";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 
 const data = {
     pending: [
@@ -115,34 +116,43 @@ const data = {
 
 export default function Page() {
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12">
-            <CustomerManagementHeader />
-            <div className="grid gap-6">
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Pending Requests</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CustomerTable data={data.pending} type="pending" />
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Approved Requests</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CustomerTable data={data.approved} type="approved" />
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Rejected Requests</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CustomerTable data={data.rejected} type="rejected" />
-                    </CardContent>
-                </Card>
-            </div>
+        <div className="flex flex-col ">
+            <main className="flex-1 p-6">
+                <Header
+                    title="Customer Management"
+                    buttonText="New Request"
+                    onButtonClick={() => alert('New Request')}
+                />
+                <div className="grid gap-6">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Pending Requests</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CustomerTable data={data.pending} type="pending"/>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Approved Requests</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CustomerTable data={data.approved} type="approved"/>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Rejected Requests</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CustomerTable data={data.rejected} type="rejected"/>
+                        </CardContent>
+                    </Card>
+                </div>
+
+            </main>
         </div>
-    );
+);
 }

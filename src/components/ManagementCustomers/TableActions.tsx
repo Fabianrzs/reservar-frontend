@@ -1,34 +1,26 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import {CheckIcon, FilePenIcon, XIcon} from "@/components/icons";
+import { TableComponent } from "@/components/common/TableComponent";
+import EyeIcon from "@/components/common/Icons/EyeIcon";
+import FilePenIcon from "@/components/common/Icons/FilePenIcon";
+import TrashIcon from "@/components/common/Icons/TrashIcon";
 
-export function TableActions({ type }: { type: string }) {
+export function CustomerTable({ data, type }: { data: any[], type: string }) {
+    const columns = ['name', 'email', 'categories', 'plan', 'locations', 'contact', 'paymentMethod'];
+
+    const actions = type === 'pending' ? [
+        { icon: <EyeIcon className="h-4 w-4" />, onClick: (item) => alert(`Preview ${item.name}`) },
+        { icon: <FilePenIcon className="h-4 w-4" />, onClick: (item) => alert(`Edit ${item.name}`) },
+        { icon: <TrashIcon className="h-4 w-4" />, onClick: (item) => alert(`Delete ${item.name}`) },
+    ] : [
+        { icon: <FilePenIcon className="h-4 w-4" />, onClick: (item) => alert(`Edit ${item.name}`) },
+        { icon: <TrashIcon className="h-4 w-4" />, onClick: (item) => alert(`Delete ${item.name}`) },
+    ];
+
     return (
-        <div className="flex gap-2">
-            {type === "pending" && (
-                <>
-                    <Button variant="outline" size="icon">
-                        <CheckIcon className="w-4 h-4" />
-                        <span className="sr-only">Approve</span>
-                    </Button>
-                    <Button variant="outline" size="icon">
-                        <XIcon className="w-4 h-4" />
-                        <span className="sr-only">Reject</span>
-                    </Button>
-                </>
-            )}
-            {type === "approved" && (
-                <>
-                    <Button variant="outline" size="icon">
-                        <FilePenIcon className="w-4 h-4" />
-                        <span className="sr-only">Edit</span>
-                    </Button>
-                    <Button variant="outline" size="icon">
-                        <XIcon className="w-4 h-4" />
-                        <span className="sr-only">Reject</span>
-                    </Button>
-                </>
-            )}
-        </div>
+        <TableComponent
+            columns={columns}
+            data={data}
+            actions={actions}
+        />
     );
 }
